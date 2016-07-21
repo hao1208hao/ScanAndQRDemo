@@ -21,12 +21,12 @@
     }else{
        //拒绝----弹窗提示跳转设置权限
        
-       <!--if ([[[UIDevice currentDevice]systemVersion]floatValue]>=8.0) {-->
-       <!--   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];-->
-       <!--}else{-->
-       <!--    NSURL*url=[NSURL URLWithString:@"prefs:root=Privacy"];-->
-       <!--    [[UIApplication sharedApplication] openURL:url];-->
-       <!--}-->
+       //if ([[[UIDevice currentDevice]systemVersion]floatValue]>=8.0) {
+       //   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+       //}else{
+       //    NSURL*url=[NSURL URLWithString:@"prefs:root=Privacy"];
+       //    [[UIApplication sharedApplication] openURL:url];
+       //}
        
     }
 
