@@ -112,9 +112,12 @@
 
         //震动提示
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        
         AVMetadataMachineReadableCodeObject *object = [metadataObjects lastObject];
-        NSLog(@"扫描结果是:%@",object.stringValue);
+        if ([self.scanDelegate respondsToSelector:@selector(getScanResult:)]) {
+            [self.scanDelegate getScanResult:result];
+        }
+         [self.navigationController popViewControllerAnimated:YES];
+       // NSLog(@"扫描结果是:%@",object.stringValue);
     } else {
         NSLog(@"没有扫描到数据");
     }
