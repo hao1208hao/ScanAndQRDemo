@@ -2,9 +2,10 @@
 
 调用
 1、引用 
+```ojbc
 #import "QRTool.h"
 #import "ScanQR.h"
-
+```
 2、生成二维码
 ```objc
     CGFloat w = 200;
