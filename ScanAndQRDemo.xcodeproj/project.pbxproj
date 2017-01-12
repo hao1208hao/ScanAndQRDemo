@@ -152,6 +152,7 @@
 				TargetAttributes = {
 					A0F049B61D407E23000B28F9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 3795HA7358;
 					};
 				};
 			};
@@ -295,12 +296,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhonghua Wei (547346FZJW)";
+				DEVELOPMENT_TEAM = 3795HA7358;
 				INFOPLIST_FILE = "$(SRCROOT)/ScanAndQR/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.qiandai.cc;
 				PRODUCT_NAME = ScanAndQRDemo;
-				PROVISIONING_PROFILE = "68ce484f-8652-4d77-bec9-094ad41d1fff";
+				PROVISIONING_PROFILE = "119b8708-f17e-49e5-a161-3dbfba52e5d4";
+				PROVISIONING_PROFILE_SPECIFIER = DCS_Custom;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;

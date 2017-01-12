@@ -78,7 +78,13 @@
     
     
     // 3.1.设置输入元数据的类型(类型是二维码数据)
-    [output setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+   // [output setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+    
+    output.metadataObjectTypes = @[AVMetadataObjectTypeEAN13Code,
+                                    AVMetadataObjectTypeEAN8Code,
+                                    AVMetadataObjectTypeCode128Code,
+                                    AVMetadataObjectTypeQRCode];
+    
     
     // Preview
     AVCaptureVideoPreviewLayer *preview =[AVCaptureVideoPreviewLayer layerWithSession:_session];
