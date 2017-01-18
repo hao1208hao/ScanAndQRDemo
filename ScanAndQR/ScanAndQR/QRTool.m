@@ -65,4 +65,31 @@
     return [UIImage imageWithCGImage:scaledImage];
 }
 
+/**
+ *  识别二维码
+ *
+ *  @param img 需要识别的二维码图片
+ *
+ *  @return 返回识别的二维码图片结果
+ */
++(NSString*)recognizeImgWithImage:(UIImage*)img{
+    NSString *result = @"";
+    if ([[[UIDevice currentDevice]systemVersion]floatValue]>=8.0) {
+        UIImage * srcImage = img;
+        CIContext *context = [CIContext contextWithOptions:nil];
+        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+        CIImage *image = [CIImage imageWithCGImage:srcImage.CGImage];
+        NSArray *features = [detector featuresInImage:image];
+        CIQRCodeFeature *feature = [features firstObject];
+        result = feature.messageString;
+    }else{
+        //提示系统版本较低，最低需要8.0系统
+        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"当前暂未支持您的系统版本,最低要求iOS8.0系统" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+        [alert show];
+        return result;
+    }
+    //NSLog(@"识别结果是%@",result);    
+    return result;
+}
+
 @end

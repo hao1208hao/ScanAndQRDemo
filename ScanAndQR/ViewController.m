@@ -13,7 +13,7 @@
 #define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
 
-@interface ViewController ()<scanResultDelegate>
+@interface ViewController ()<scanQRDelegate>
 
 
 @end
@@ -50,19 +50,21 @@
     return  btn;
 }
 
-
-
 - (void)createQR{
     
     CGFloat w = 200;
     /** 生成二维码 */
-    UIImage* img =[QRTool createQRImgWithContent:@"http://www.baidu.com" imgSize:w];
+    UIImage* img =[QRTool createQRImgWithContent:@"https://www.baidu.com" imgSize:w];
     
     UIImageView* imgV = [[UIImageView alloc]initWithImage:img];
     [imgV setFrame:CGRectMake((SCREEN_WIDTH-w)/2, (SCREEN_HEIGHT-w)/2, w, w)];
     [imgV setCenter:self.view.center];
     [self.view addSubview:imgV];
+    [imgV setUserInteractionEnabled:YES];
     
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(recognizeImg:)];
+    [tap setNumberOfTapsRequired:1];
+    [imgV addGestureRecognizer:tap];
 }
 
 - (void)Scan{
@@ -73,6 +75,18 @@
     [self.navigationController pushViewController:scan animated:YES];
     
 }
+
+-(void)recognizeImg:(UITapGestureRecognizer*)t{
+    UIImageView* imgView = (UIImageView*)t.view;
+    UIImage* img = imgView.image;
+    //最低系统版本要求  8.0
+    //[self recQRCodeWithImg:img];
+    
+    NSString* result = [QRTool recognizeImgWithImage:img];
+    UIAlertView* alert =[[UIAlertView alloc]initWithTitle:@"识别结果" message:result delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    [alert show];
+}
+
 
 -(void)getScanResult:(NSString *)scanResult{
     UIAlertView* alert =[[UIAlertView alloc]initWithTitle:@"扫描结果" message:scanResult delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];

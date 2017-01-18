@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol scanResultDelegate <NSObject>
+@protocol scanQRDelegate <NSObject>
 
 -(void)getScanResult:(NSString*)scanResult;
 
@@ -17,7 +17,7 @@
 @interface ScanQR : UIViewController
 
 /** 扫描结果代理 */
-@property(nonatomic,weak) id<scanResultDelegate> scanDelegate;
+@property(nonatomic,weak) id<scanQRDelegate> scanDelegate;
 
 /**
  *  扫描二维码

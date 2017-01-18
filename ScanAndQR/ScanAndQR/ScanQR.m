@@ -28,6 +28,14 @@
     [self scanQR];
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if ([_session isRunning]) {
+        [_session stopRunning];
+    }
+}
+
 /** 扫描区域 */
 -(void)scanQR{
     

@@ -20,5 +20,13 @@
  */
 +(UIImage*)createQRImgWithContent:(NSString*)qrContent imgSize:(CGFloat)imgSize;
 
+/**
+ *  识别二维码
+ *
+ *  @param img 需要识别的二维码图片
+ *
+ *  @return 返回识别的二维码图片结果
+ */
++(NSString*)recognizeImgWithImage:(UIImage*)img;
 
 @end

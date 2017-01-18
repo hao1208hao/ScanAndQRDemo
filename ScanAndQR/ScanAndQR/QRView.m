@@ -12,7 +12,6 @@
 static NSTimeInterval kQrLineanimateDuration = 0.02;
 
 @implementation QRView {
-
         UIImageView *qrLine;
         CGFloat qrLineY;
         UIButton *topBarView;
